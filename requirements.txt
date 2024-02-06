@@ -1,0 +1,11 @@
+imageio==2.19.1
+matplotlib==3.5.2
+numpy==1.23.2
+pandas==2.0.3
+Pillow==9.1.0
+pycocotools==2.0.4
+opencv-python==4.6.0.66
+scikit-image==0.19.2
+scipy==1.8.0
+shapely==2.0.1
+wandb==0.13.4
