@@ -4,35 +4,20 @@ good-names=i,j,k,x,y,w,h,px,ex,io,lr
 
 ignore-paths=projects/cellpose
 
-disable=pointless-statement,
-        line-too-long,
+disable=line-too-long,
+        import-error, # since we are not installing all dependencies in the pipeline
+        missing-class-docstring,
         missing-function-docstring,
+        missing-module-docstring,
+        too-many-function-args,
         too-many-locals,
         too-many-arguments,
         too-many-instance-attributes,
         unspecified-encoding,
-        relative-beyond-top-level,
-        missing-module-docstring,
-        bare-except,
         consider-using-enumerate,
         too-few-public-methods,
         no-member, # Disabled due to generated members from torch and cv2
-        missing-class-docstring,
-        broad-exception-caught,
-        singleton-comparison, # Disabled, because == and 'is' have different semantics in numpy
-        pointless-string-statement,
-        fixme,
         protected-access,
         redundant-keyword-arg,
         missing-kwoa,
-        attribute-defined-outside-init,
-        import-error,
-        import-self,
-        unused-argument,
-        duplicate-code,
-        too-many-nested-blocks,
-        too-many-branches,
-        too-many-statements,
-        too-many-function-args,
-        consider-using-dict-items,
-        super-init-not-called,
+        unused-argument

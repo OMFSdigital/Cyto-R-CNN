@@ -1,0 +1,11 @@
+venv/*
+__pycache__/
+models/
+*.DS_Store
+coco.json
+wandb/
+config/
+output/
+*.pth
+coco_eval.json
+prediction.json

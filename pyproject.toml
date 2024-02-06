@@ -1,0 +1,18 @@
+[build-system]
+requires = [
+    "flit_core >=3.2,<4",
+]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "cytorcnn"
+version = "1.0.0"
+authors = [
+  { name="Johannes Raufeisen", email="jraufeisen@ukaachen.de" },
+]
+description = "Instance segmentation for cells and nuclei"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
