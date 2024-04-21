@@ -2,7 +2,7 @@
 
 Work in progress. This repository will soon contain the Python implementation of [Cyto R-CNN](https://arxiv.org/abs/2401.15638).
 <p align="center">
-<img src="https://github.com/jraufeisen/Cyto-R-CNN/assets/3852580/e5d53188-86a1-4046-9195-4d5eca7abd27" width="400" align="middle"/>
+<img src="cytorcnn_schematic.png" width="400" align="middle"/>
 </p>
 
 ### Installation
