@@ -1,6 +1,6 @@
 ## Cyto R-CNN and CytoNuke Dataset: Towards reliable whole-cell segmentation in bright-field histological images
 
-Work in progress. This repository will soon contain the Python implementation of [Cyto R-CNN](https://arxiv.org/abs/2401.15638).
+Work in progress. This repository will soon contain the Python implementation of [Cyto R-CNN](https://www.sciencedirect.com/science/article/pii/S0169260724002104?via%3Dihub).
 <p align="center">
 <img src="cytorcnn_schematic.png" width="400" align="middle"/>
 </p>
@@ -47,10 +47,15 @@ cytorcnn.train(train_dataset, val_dataset)
 ### How to cite
 
 ```
-@article{cytorcnn2024,
-    title={Cyto R-CNN and CytoNuke Dataset: Towards reliable whole-cell segmentation in bright-field histological images}, 
-    author={Johannes Raufeisen and Kunpeng Xie and Fabian Hörst and Till Braunschweig and Jianning Li and Jens Kleesiek and Rainer Röhrig and Jan Egger and Bastian Leibe and Frank Hölzle and Alexander Hermans and Behrus Puladi},
+@article{raufeisen2024,
+    title={Cyto R-CNN and CytoNuke Dataset: Towards reliable whole-cell segmentation in bright-field histological images},
+    journal = {Computer Methods and Programs in Biomedicine},
+    volume = {252},
+    pages = {108215},
     year={2024},
-    doi = {arXiv:2401.15638},
+    issn = {0169-2607},
+    author={Johannes Raufeisen and Kunpeng Xie and Fabian Hörst and Till Braunschweig and Jianning Li and Jens Kleesiek and Rainer Röhrig and Jan Egger and Bastian Leibe and Frank Hölzle and Alexander Hermans and Behrus Puladi},
+    doi = {https://doi.org/10.1016/j.cmpb.2024.108215},
+    url = {https://www.sciencedirect.com/science/article/pii/S0169260724002104},
 }
 ```
