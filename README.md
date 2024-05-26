@@ -1,12 +1,10 @@
 ## Cyto R-CNN and CytoNuke Dataset: Towards reliable whole-cell segmentation in bright-field histological images
-
-Work in progress. This repository will soon contain the Python implementation of [Cyto R-CNN](https://www.sciencedirect.com/science/article/pii/S0169260724002104?via%3Dihub).
+This repository contains the Python implementation of [Cyto R-CNN](https://www.sciencedirect.com/science/article/pii/S0169260724002104?via%3Dihub).
 <p align="center">
 <img src="cytorcnn_schematic.png" width="400" align="middle"/>
 </p>
 
 ### Installation
-
 First, you will need to install CUDA on your machine.
 This code has been developed with Python 3.9 and CUDA 11.8.
 
@@ -17,10 +15,17 @@ This code has been developed with Python 3.9 and CUDA 11.8.
 7. `pip install 'git+https://github.com/facebookresearch/detectron2.git'`
 8. `pip install -e .`
 
-### Usage
+### Dataset
+The CytoNuke dataset can be downloaded from [Zenodo](https://zenodo.org/records/10560728).
 
+### Trained Model
+You can download a pretrained for the CytoNuke dataset on [Google Drive](https://drive.google.com/file/d/1Jo8_e-OIWSTMqhD6CSSgSHBGwDxWEd2U/view)
+
+### Usage
 ```python
 ## Prediction
+from cytorcnn import CytoRCNN, utilities
+
 weights_path = "/.../model.pth"
 image_path = "/.../image.png"
 cytorcnn = CytoRCNN(weights_path)
