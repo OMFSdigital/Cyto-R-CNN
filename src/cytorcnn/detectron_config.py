@@ -10,7 +10,7 @@ def detectron_base_config(name):
     cfg = get_cfg()
     cfg.merge_from_file(
         model_zoo.get_config_file(
-            "COCO-InstanceSegmentation/mask_rcnn_R_101_FPN_3x.yaml"
+            "COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml"
         )
     )
     cfg.MODEL.META_ARCHITECTURE = "CytoRCNN"
@@ -22,8 +22,8 @@ def detectron_base_config(name):
     ]  # The factor by which each nuclei should be scaled to create a proposal for the whole cell
     cfg.MODEL.ROI_BOX_HEAD.CELL_BBOX_REG_LOSS_WEIGHT = 1
     cfg.MODEL.ANCHOR_GENERATOR.SIZES = [8, 16, 32, 64]
-    cfg.MODEL.ROI_HEADS.NMS = 0.3
-    cfg.MODEL.ROI_HEADS.NMS_THRESH_TEST = 0.3
+    cfg.MODEL.ROI_HEADS.NMS = 0.4
+    cfg.MODEL.ROI_HEADS.NMS_THRESH_TEST = 0.4
     cfg.MODEL.ROI_HEADS.NUM_CLASSES = 1
     cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.0
 
