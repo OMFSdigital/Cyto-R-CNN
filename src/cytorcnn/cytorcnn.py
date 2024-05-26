@@ -1,4 +1,5 @@
 import math
+import os
 from typing import Optional
 import cv2
 from detectron2.engine import DefaultPredictor
@@ -18,6 +19,11 @@ class CytoRCNN:
         self.weights_path = weights_path
         self.config_name = "cytorcnn"
         self.config = detectron_base_config(self.config_name)
+
+        self.config.MODEL.DEVICE = "cuda"
+        self.config.MODEL.WEIGHTS = self.weights_path
+        self.config.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.05
+        self.predictor = DefaultPredictor(self.config)
 
     def train(self, train_dataset: Dataset, val_dataset: Dataset):
         total_num_images = train_dataset.size
@@ -55,21 +61,35 @@ class CytoRCNN:
 
         trainer.train()
 
+    def predict_from_folder(self, image_folder_path):
+        if self.weights_path is None:
+            raise RuntimeError("Error: Load a model before calling .predict()")
+
+        file_names = sorted(list(os.listdir(image_folder_path)))
+        file_paths = [os.path.join(image_folder_path, x) for x in file_names]
+
+        instances_for_each_image = []
+        for path in file_paths:
+            image = cv2.imread(path)
+            result = self.predictor(image)
+            instances = result["instances"]
+            instances_for_each_image.append(instances)
+
+        coco = create_coco_file_from_detectron_instances(
+            instances_for_each_image, file_paths
+        )
+        write_dict_to_file(coco, "prediction.json")
+
     def predict(self, image_path):
         if self.weights_path is None:
             raise RuntimeError("Error: Load a model before calling .predict()")
 
-        self.config.MODEL.DEVICE = "cuda"
-        self.config.MODEL.WEIGHTS = self.weights_path
-        self.config.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.05
-
-        predictor = DefaultPredictor(self.config)
         file_paths = [image_path]
 
         instances_for_each_image = []
         for path in file_paths:
             image = cv2.imread(path)
-            result = predictor(image)
+            result = self.predictor(image)
             instances = result["instances"]
             instances_for_each_image.append(instances)
 
